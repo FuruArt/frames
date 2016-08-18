@@ -4,4 +4,4 @@
 #### FuruFrames - Shiny &amp; ambious CSS Framework made in Poland.
 ---
 
-Version: 0.0.1 Alpha
+Version: `0.0.1 Alpha`
