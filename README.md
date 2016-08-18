@@ -1,2 +1,2 @@
-# furuframes.github.io
-FuruFrames - Shiny &amp; ambious CSS Framework made in Poland.
+### FuruFrames
+#### FuruFrames - Shiny &amp; ambious CSS Framework made in Poland.
