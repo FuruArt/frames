@@ -1,0 +1,67 @@
+// Fonts
+$baseFont: 'Roboto', sans-serif;
+$headerFont: 'Roboto Slab', serif;
+
+//Colors
+  //Red
+  $darkRed: #b71c1c;
+  $red: #f44336;
+  //Deep Orange
+  $darkDeepOrange: #dd2c00;
+  $deepOrange: #ff5722;
+  //Orange
+  $darkOrange: #e65100;
+  $orange: #ff6d00;
+  //Yellow
+  $darkYellow: #f9a825;
+  $yellow: #ffea00;
+  //Lime
+  $darkLime: #9e9d24;
+  $lime: #aeea00;
+  //Green
+  $darkGreen: #558b2f;
+  $green: #76ff03;
+  //Deep Green
+  $darkDeepGreen: #2e7d32;
+  $deepGreen: #4caf50;
+  //Teal
+  $darkTeal: #00695c;
+  $teal: #26a69a;
+  //Cyan
+  $darkCyan: #006064;
+  $cyan: #00bcd4;
+  //Lightblue
+  $darkLightBlue: #01579b;
+  $lightBlue: #039be5;
+  //Blue
+  $darkBlue: #0d47a1;
+  $blue: #1e88e5;
+  //Indigo
+  $darkIndigo: #283593;
+  $indigo: #3f51b5;
+  //Purple
+  $darkPurple: #311b92;
+  $purple: #673ab7;
+  //Violet
+  $darkViolet: #4a148c;
+  $violet: #8e24aa;
+  //Pink
+  $darkPink: #ad1457;
+  $pink: #e91e63;
+  //Grey
+  $darkGrey: #212121;
+  $grey: #9e9e9e;
+  //Brown
+  $darkBrown: #4e342e;
+  $brown: #795548;
+  //Other
+  $text: #333;
+  $link: $orange;
+  $linkHover: $darkYellow;
+  $navigationOverlayShadow: rgba(0, 0, 0, 0.9);
+  $navigationBackground: rgba(245, 245, 245, 1);
+  $navigationIcon: $orange;
+  $description: rgba(33, 33, 33, 0.5);
+
+//Setup
+  $navbarHeight: 80px;

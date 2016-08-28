@@ -1,0 +1,28 @@
+@mixin font($font ,$size, $weight, $color) {
+  font-family: $font;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin transition($element, $time, $effect) {
+  transition: $element, $time, $effect;
+  -webkit-transition: $element, $time, $effect;
+  -moz-transition: $element, $time, $effect;
+  -o-transition: $element, $time, $effect;
+  -ms-transition: $element, $time, $effect;
+}
+
+@mixin transform($transform) {
+  transform: $transform;
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -o-transform: $transform;
+  -ms-transform: $transform;
+}
+
+@mixin size($width, $height) {
+  max-width: $width;
+  min-width: $width;
+  height: $height;
+}

@@ -1,0 +1,250 @@
+* { 
+  box-sizing: border-box; 
+  margin: 0 auto; 
+  padding: 0; 
+  position: relative; 
+  -webkit-font-smoothing: subpixel-antialiased; 
+  @include transition(all, .7s, ease-in-out); 
+}
+
+html, body { min-height: 100%; overflow-x: hidden; }
+
+:root { font-size: 18px; }
+
+::selection {
+  background: $link;
+}
+
+.content { z-index: 1; }
+
+h1, h2, h3, h4, h5, h6, p, span, ul, li, a, table, tr, th, tbody, td, div, section, header, footer, aside, nav, article {
+  @include font($baseFont, 1rem, 500, $text);
+  padding: 0;
+}
+
+h1 { font-size: 3rem; margin-bottom: 3rem; }
+h2 { font-size: 2.5rem; margin-bottom: 2.5rem; }
+h3 { font-size: 2rem; margin-bottom: 2rem; }
+h4 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+h5 { font-size: 1.2rem; margin-bottom: 1.2rem; }
+h6 { font-size: 1rem; margin-bottom: 1rem; }
+
+.alt { 
+  @include size(100%, auto);
+  padding-bottom: 10px;
+  border-bottom: 4px solid $grey;
+}
+
+.serif { font-family: $headerFont; }
+
+p { line-height: 2.5rem; font-weight: 400; }
+
+a, a:visited { 
+  color: $link;
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid $link;
+}
+
+a:hover, a:active {
+  color: $linkHover;
+  border-bottom: 2px solid $linkHover;
+}
+
+.spacer { @include size(100%, 40px); }
+
+//Grid
+
+.container {
+  @include size(1100px, auto);
+}
+
+.maxWidth { @include size(100%, auto); }
+
+.col-1 { width: calc(8.33%*1); }
+.col-2 { width: calc(8.33%*2); }
+.col-3 { width: calc(8.33%*3); }
+.col-4 { width: calc(8.33%*4); }
+.col-5 { width: calc(8.33%*5); }
+.col-6 { width: calc(8.33%*6); }
+.col-7 { width: calc(8.33%*7); }
+.col-8 { width: calc(8.33%*8); }
+.col-9 { width: calc(8.33%*9); }
+.col-10 { width: calc(8.33%*10); }
+.col-11 { width: calc(8.33%*11); }
+.col-12 { width: calc(8.33%*12); }
+
+.row {
+    margin: 0;
+    padding: 0;
+    
+    &::after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+}
+
+[class*='col-'] {
+    float: left;
+}
+
+// Elements
+
+// Navigation-bar
+
+.mask {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  @include size(100%, 100vh);
+  background: $navigationOverlayShadow;
+  z-index: 999;
+  overflow: hidden;
+  opacity: 0;
+  @include transition( all, .2s, linear );
+  display: none;
+
+  &.run {
+    opacity: 1;
+    display: block;
+  }
+}
+
+.openedLeft { @include transform( translateX( 0px ) ); }
+
+.openedRight { @include transform( translateX( -0px ) ); }
+
+.closedLeft { @include transform( translateX( -440px) ); }
+
+.closedRight { @include transform( translateX( 440px ) ); }
+
+.navigation-bar { 
+  @include size(100%, $navbarHeight);
+  display: inline-block;
+  background: $navigationBackground;
+  line-height: $navbarHeight;
+  padding: 0 20px;
+  margin-bottom: 40px;
+
+  &.slide {
+
+    .brand {
+      margin-left: 60px;
+    }
+    
+    .navTrigger {
+      display: block;
+      @include size(80px, 80px);
+      line-height: 80px;
+      text-align: center;
+      border: 0;
+      float: left;
+      z-index: 99999;
+
+      &.navOpen, &.navClose {
+        position: absolute; left: 0;
+        cursor: pointer;
+
+        &.right { right: 0 !important; left: auto; }
+      }
+
+      &.navClose {
+        @include size(100%, 80px);
+        text-align: left;
+        position: relative;
+        background: none;
+        padding-left: 20px;
+
+        i { color: $navigationIcon; }
+      }
+
+      i { display: block; font-size: 1.5rem; color: $navigationIcon;
+        &:hover { color: $linkHover; } 
+      }
+    }
+
+    .menuContent {
+      @include size(400px, 100vh);
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: $navigationBackground;
+      overflow: hidden;
+      z-index: 9999;
+      box-shadow: 5px 2px 6px 0px rgba(0, 0, 0, 0.15);
+
+      &.right {
+        float: right;
+        position: absolute;
+        right: -440px;
+        left: auto !important;
+        box-shadow: -5px 2px 6px 0px rgba(0, 0, 0, 0.15);
+      }
+        
+      .item {
+        display: block;
+        float: none;
+        cursor: pointer;
+        border-bottom: 1px solid rgba(33, 33, 33, .15);
+
+        &:first-of-type {
+          margin-top: 80px;
+        }
+
+        .description {
+          padding-left: 40px;
+          position: relative;
+          top: -25px;
+          @include font("Roboto", .9rem, 500, $description);
+        }
+      }
+      
+    }
+    
+  }
+
+  &.scroll { position: fixed; top: 0; left: 0; right: 0; z-index: 999; }
+
+  .brand {
+    border: 0px;
+    width: auto;
+
+    .title { width: auto; display: inline-block; margin-bottom: 0; color: $text; 
+      &:hover { color: lighten($text, 20px); }
+     }
+  }
+
+  .list {
+    display: inline-block;
+    float: right;
+    width: auto;
+
+    .item {
+      display: inline-block;
+
+      a { margin-left: 40px; border: none; }
+
+      &:first-child { margin-left: 0px; }
+    }
+  }
+}
+
+
+//Global
+.hidden { display: none !important; }
+
+.nonScroll { overflow: hidden; }
+
+.pushRight { @include transform( translateX( 100px ) ); }
+
+.pushLeft { @include transform( translateX( -100px ) ); }
+
+.square { background: $link; 
+
+  &:hover { background: $linkHover; }
+
+  i, a { color: #fff; } 
+
+}
+
+.center { display: block; margin: 0 auto; text-align: center; }
